@@ -315,7 +315,7 @@ function accept_mission()
     Write-Host "  The king thanks you" $characters["$pc"][0] "for accepting his call to help and hands you a" $characters["$pc"][2]
     Write-Host "  to aid you on your journey."
     Write-Host `n
-    Write-Host "  You load up a horse and ride head towards $townName2."
+    Write-Host "  You load up a horse and ride heading north towards $townName2."
     Write-Host `n
     Write-Host "  After two day's ride you arrive at $townName3, a small village on the outskirts of the $townName2."
     Write-Host `n
@@ -446,7 +446,7 @@ function villagers_first()
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
     Write-Host "  You speak to $npc2_1 an elder of the village who explains that the dragon has been seen resting in a cave"
-    Write-Host "  nearbyafter nightfall. $npc2_1 suggests speaking to the local detachment and launching a surprise attack"
+    Write-Host "  nearby after nightfall. $npc2_1 suggests speaking to the local detachment and launching a surprise attack"
     Write-Host "  after dark with their help."
     Write-Host `n
     Write-Host "  What do you want to do now?"
@@ -557,8 +557,6 @@ function commander_second_part2()
     Write-Host "  The end!"
     Write-Host `n
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
-    Write-Host `n
-    write-host "  Press any key to continue" -ForegroundColor Yellow
     Write-Host `n
 
     $retry = read-host -Prompt "  Thankyou for playing my game, do you want to play again? (Y or N)"
