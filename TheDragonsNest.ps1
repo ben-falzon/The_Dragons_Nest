@@ -620,11 +620,11 @@ $npc2_4 = $npc.race[$num2]
 $npc2_5 = $npc.occupation[$num2]
 
 
-#############
-#           #
-#    Game   #
-#           #
-#############
+##################
+#                #
+#    Run Game    #
+#                #
+##################
 
 setup_display
 
