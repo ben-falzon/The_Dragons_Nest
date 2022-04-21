@@ -87,7 +87,7 @@ function title_screen ()
     Write-host "                                    \   `'  / \  `'  / \  `.' /          " -ForegroundColor Green
     Write-host "                                     `.___,'   `.__,'   `.__,'           " -ForegroundColor Green
     Write-Host `n
-    Write-host "                                                                                     A roll playing game by Ben Falzon" -ForegroundColor Magenta
+    Write-host "                                                                                     A role playing game by Ben Falzon" -ForegroundColor Magenta
     Write-host "                                                                                              written in PowerShell >_" -ForegroundColor Magenta
     Write-Host `n
     Write-Host "########################################################################################################################" -ForegroundColor Red
