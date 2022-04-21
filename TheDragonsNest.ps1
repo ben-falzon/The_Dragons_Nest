@@ -141,7 +141,7 @@ function character_selection()
     Write-Host "                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                         " -ForegroundColor Green
     Write-Host `n
 
-    $userResponse = Read-Host -Prompt "  Choose your character (enter for random)"
+    $userResponse = Read-Host -Prompt "  Choose your character (1 - 4 or enter for random)"
 
     Switch ($userResponse) 
     { 
