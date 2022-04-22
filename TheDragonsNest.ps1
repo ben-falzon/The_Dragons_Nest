@@ -3,6 +3,9 @@
 ## Based on DragonSlayer by slashadminsource
 ## https://github.com/slashadminsource/DragonSlayer
 
+# Used so then random numbers are regenerated each time the script is ran
+Do {
+
 # Game Variables
 $pc = $null
 $global:playerDragonTip = $false
@@ -214,21 +217,7 @@ function decline_kings_request()
     Write-Host `n
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-
-    $retry = read-host -Prompt "  Do you want to try again? (Y or N)"
-
-    if($retry -eq "Y"){
-        write-host("  Let's try this again!") -ForegroundColor Yellow
-        set_sleep
-        character_selection
-     } elseif($retry -eq "N"){
-        write-host("  Farewell for now!") -ForegroundColor Yellow
-        set_sleep
-     } else {
-        write-host("  Please choose Y or N.") -ForegroundColor Red
-        set_sleep
-        decline_kings_request
-     }  
+ 
 }
 
 # Accept kings request
@@ -287,21 +276,7 @@ function decline_mission()
     Write-Host `n
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-
-    $retry = read-host -Prompt "  Do you want to try again? (Y or N)"
-
-    if($retry -eq "Y"){
-        write-host("  Let's try this again!") -ForegroundColor Yellow
-        set_sleep
-        character_selection
-     } elseif($retry -eq "N"){
-        write-host("  Farewell for now!") -ForegroundColor Yellow
-        set_sleep
-     } else {
-        write-host("  Please choose Y or N.") -ForegroundColor Red
-        set_sleep
-        decline_mission
-     }   
+  
 }
 
 # Accept mission
@@ -405,8 +380,8 @@ function commander_first()
 
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-    Write-Host "  You speak to $npc1_1 who is commanding the local detachment of soldiers. $npc1_1 is making their way"
-    Write-Host "  north to rejoin the rest of the troops but is willing to assist in finding the dragon and suggests waiting until"
+    Write-Host "  You speak to $npc1_1 who is commanding the local detachment of soldiers. $npc1_1 is making their"
+    Write-Host "  way north to rejoin the rest of the troops but is willing to assist in finding the dragon and suggests waiting until"
     Write-Host "  she returns and slay her in combat."
     Write-Host `n
     Write-Host "  You setup camp with the detachment and prepare the weapons."
@@ -420,21 +395,7 @@ function commander_first()
     Write-Host `n
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-
-    $retry = read-host -Prompt "  Do you want to try again? (Y or N)"
-
-    if($retry -eq "Y"){
-        write-host("  Let's try this again!") -ForegroundColor Yellow
-        set_sleep
-        character_selection
-     } elseif($retry -eq "N"){
-        write-host("  Farewell for now!") -ForegroundColor Yellow
-        set_sleep
-     } else {
-        write-host("  Please choose Y or N.") -ForegroundColor Red
-        set_sleep
-        commander_first
-     }   
+   
 }
 
 # Villagers first
@@ -491,21 +452,7 @@ function cave_first()
     Write-Host `n
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-
-    $retry = read-host -Prompt "  Do you want to try again? (Y or N)"
-
-    if($retry -eq "Y"){
-        write-host("  Let's try this again!") -ForegroundColor Yellow
-        set_sleep
-        character_selection
-     } elseif($retry -eq "N"){
-        write-host("  Farewell for now!") -ForegroundColor Yellow
-        set_sleep
-     } else {
-        write-host("  Please choose Y or N.") -ForegroundColor Red
-        set_sleep
-        cave_first
-     }   
+  
 }
 
 # Commander second part 1
@@ -559,20 +506,6 @@ function commander_second_part2()
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
 
-    $retry = read-host -Prompt "  Thankyou for playing my game, do you want to play again? (Y or N)"
-
-    if($retry -eq "Y"){
-        write-host("  Alright! Let's do this!") -ForegroundColor Yellow
-        set_sleep
-        character_selection
-     } elseif($retry -eq "N"){
-        write-host("  Farewell for now!") -ForegroundColor Yellow
-        set_sleep
-     } else {
-        write-host("  Please choose Y or N.") -ForegroundColor Red
-        set_sleep
-        commander_second_part2
-     }
 }
 
 
@@ -627,3 +560,23 @@ $npc2_5 = $npc.occupation[$num2]
 setup_display
 
 title_screen
+
+
+
+Do{
+   $again = Read-host "  Thankyou for playing my game, do you want to play again? (Y or N)"
+   If(($again -eq "Y") -or ($again -eq "N")){
+      $go = $true
+   }
+   Else{
+      write-host `n
+      write-host "  Invalid input. Please try again"  -ForegroundColor Red
+      write-host `n
+   }
+   }Until($go)
+   
+   }
+   Until($again -eq "N")
+
+   write-host `n
+   write-host("  Farewell for now!") -ForegroundColor Yellow
