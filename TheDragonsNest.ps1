@@ -45,7 +45,7 @@ function random_char {
 
 # Sleep between text / scenes
 function set_sleep {
- Start-Sleep 3
+ Start-Sleep 2
 }
 
 # Setup Display function
@@ -137,7 +137,7 @@ function character_selection()
     
     foreach ($char in $characters) {
         $i++
-        write-host "                                        " $i"."  $char[0] "-" $char[1] -ForegroundColor Green
+        write-host "                                          $($i). $($char[0]) - $($char[1])" -ForegroundColor Green
     }
 
     Write-Host `n
@@ -155,7 +155,7 @@ function character_selection()
             default {$pc = $ranChar}
     }
 
-    Write-Host "  You selected" $characters["$pc"][0]", let's begin!"  -ForegroundColor Yellow
+    Write-Host "  You selected $($characters[$($pc)][0]), let's begin!"  -ForegroundColor Yellow
 
     set_sleep
     $i = 0
@@ -170,7 +170,7 @@ function kings_request()
 
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-    Write-Host "  You arrive at a village called $townName1 in $countryName1, as you make your way to the town square, "
+    Write-Host "  You arrive at a village called $($townName1) in $($countryName1), as you make your way to the town square, "
     Write-Host "  a message boy approaches and informs you that you have been summoned by the honorable King Grigor Fota!"
     Write-Host `n
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
@@ -230,15 +230,15 @@ function accept_kings_request()
     Write-Host `n
     Write-Host "  'Welcome lonely traveler, and what is your name?' asks the king."
     Write-Host `n
-    Write-Host "  You reply 'I am" $characters["$pc"][0]", the" $characters["$pc"][1] "from" $playerTownName", surely you have heard of me?!'" -ForegroundColor Cyan
+    Write-Host "  You reply 'I am $($characters[$($pc)][0]), the $($characters[$($pc)][1]) from $($playerTownName), surely you have heard of me?!'" -ForegroundColor Cyan
     Write-Host `n
-    Write-Host "  'That I have," $characters["$pc"][0] "of" $playerTownName "for I am King Grigor Fota, and my knowledge is vast!'"
+    Write-Host "  'That I have, $($characters[$($pc)][0]) of $($playerTownName) for I am King Grigor Fota, and my knowledge is vast!'"
     Write-Host "  bragged the king."
     Write-Host `n
     Write-Host "  'However I have asked you upon here as I am in dire need of a hero.' Explains the king."
     Write-Host `n
     Write-Host "  'My wife the Lady Amalia has fallen ill, and the only cure is the yolk of a dragon's egg. Will you head north to"
-    Write-Host "  $townName2 situated near the $locationType1 of" $countryName2"? It is there that the great dragon has built it's nest.'"
+    Write-Host "  $($townName2) situated near the $($locationType1) of $($countryName2)? It is there that the great dragon has built it's nest.'"
     Write-Host `n
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
@@ -287,14 +287,14 @@ function accept_mission()
 
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-    Write-Host "  The king thanks you" $characters["$pc"][0] "for accepting his call to help and hands you a" $characters["$pc"][2]
+    Write-Host "  The king thanks you $($characters[$($pc)][0]) for accepting his call to help and hands you a $($characters[$($pc)][2])"
     Write-Host "  to aid you on your journey."
     Write-Host `n
-    Write-Host "  You load up a horse and ride heading north towards $townName2."
+    Write-Host "  You load up a horse and ride heading north towards $($townName2)."
     Write-Host `n
-    Write-Host "  After two day's ride you arrive at $townName3, a small village on the outskirts of the $townName2."
+    Write-Host "  After two day's ride you arrive at $($townName3), a small village on the outskirts of the $($townName2)."
     Write-Host `n
-    Write-Host "  You choose $townName3 to make your stand due to its remote location and an army detachment camping nearby."
+    Write-Host "  You choose $($townName3) to make your stand due to its remote location and an army detachment camping nearby."
     Write-Host `n
     Write-Host "  On your arrival do you?"
     Write-Host `n
@@ -316,11 +316,11 @@ function accept_mission()
         set_sleep
         villagers_first
      } elseif($accept_mission_menu -eq 3){
-        write-host("  You want to know more about $npc1_1.") -ForegroundColor Yellow
+        write-host("  You want to know more about $($npc1_1).") -ForegroundColor Yellow
         set_sleep
         npc1_about
     } elseif($accept_mission_menu -eq 4){
-        write-host("  You want to know more about $npc2_1.") -ForegroundColor Yellow
+        write-host("  You want to know more about $($npc2_1).") -ForegroundColor Yellow
         set_sleep
         npc2_about
      } else {
@@ -338,11 +338,11 @@ function npc1_about()
 
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-    Write-Host "  Name:       "$npc1_1
-    Write-Host "  Age:        "$npc1_2
-    Write-Host "  Gender:     "$npc1_3
-    Write-Host "  Race:       "$npc1_4
-    Write-Host "  Occupation:  Commander of the $townName2 army"
+    Write-Host "  Name:        $($npc1_1)"
+    Write-Host "  Age:         $($npc1_2)"
+    Write-Host "  Gender:      $($npc1_3)"
+    Write-Host "  Race:        $($npc1_4)"
+    Write-Host "  Occupation:  Commander of the $($townName2) army"
     Write-Host `n
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
@@ -359,11 +359,11 @@ function npc2_about()
 
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-    Write-Host "  Name:        "$npc2_1
-    Write-Host "  Age:         "$npc2_2
-    Write-Host "  Gender:      "$npc2_3
-    Write-Host "  Race:        "$npc2_4
-    Write-Host "  Occupation:  "$npc2_5
+    Write-Host "  Name:        $($npc2_1)"
+    Write-Host "  Age:         $($npc2_2)"
+    Write-Host "  Gender:      $($npc2_3)"
+    Write-Host "  Race:        $($npc2_4)"
+    Write-Host "  Occupation:  $($npc2_5)"
     Write-Host `n
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
@@ -380,7 +380,7 @@ function commander_first()
 
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-    Write-Host "  You speak to $npc1_1 who is commanding the local detachment of soldiers. $npc1_1 is making their"
+    Write-Host "  You speak to $($npc1_1) who is commanding the local detachment of soldiers. $($npc1_1) is making their"
     Write-Host "  way north to rejoin the rest of the troops but is willing to assist in finding the dragon and suggests waiting until"
     Write-Host "  she returns and slay her in combat."
     Write-Host `n
@@ -406,8 +406,8 @@ function villagers_first()
 
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-    Write-Host "  You speak to $npc2_1 an elder of the village who explains that the dragon has been seen resting in a cave"
-    Write-Host "  nearby after nightfall. $npc2_1 suggests speaking to the local detachment and launching a surprise attack"
+    Write-Host "  You speak to $($npc2_1) an elder of the village who explains that the dragon has been seen resting in a cave"
+    Write-Host "  nearby after nightfall. $($npc2_1) suggests speaking to the local detachment and launching a surprise attack"
     Write-Host "  after dark with their help."
     Write-Host `n
     Write-Host "  What do you want to do now?"
@@ -415,16 +415,16 @@ function villagers_first()
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n   
     write-host "  1. Speak to the detachments commander." -ForegroundColor Yellow
-    write-host "  2. Ask $npc2_1 to take you to the cave after dark." -ForegroundColor Yellow
+    write-host "  2. Ask $($npc2_1) to take you to the cave after dark." -ForegroundColor Yellow
     Write-Host `n
     $villagers_first_menu = read-host -Prompt "  Please choose an option (1 or 2)"
 
     if($villagers_first_menu -eq 1){
-        write-host("  You go talk to the commander after speaking with $npc2_1.") -ForegroundColor Yellow
+        write-host("  You go talk to the commander after speaking with $($npc2_1).") -ForegroundColor Yellow
         set_sleep
         commander_second_part1
      } elseif($villagers_first_menu -eq 2){
-        write-host("  You ask $npc2_1 to take you to the cave.") -ForegroundColor Yellow
+        write-host("  You ask $($npc2_1) to take you to the cave.") -ForegroundColor Yellow
         set_sleep
         cave_first
      } else {
@@ -442,7 +442,7 @@ function cave_first()
 
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-    Write-Host "  After dark, $npc2_1 takes you to the cave and leaves you to investigate. You get close to the cave but can't"
+    Write-Host "  After dark, $($npc2_1) takes you to the cave and leaves you to investigate. You get close to the cave but can't"
     Write-Host "  see any sign of the dragon so you move closer still. Suddenly you hear a noise from behind! you turn quickly"
     Write-Host "  and are engulfed by flames!"
     Write-Host `n
@@ -463,10 +463,10 @@ function commander_second_part1()
 
     Write-Host "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" -ForegroundColor Green
     Write-Host `n
-    Write-Host "  You speak to $npc1_1 who is commanding the local detachment of soldiers. $npc1_1 is making"
+    Write-Host "  You speak to $($npc1_1) who is commanding the local detachment of soldiers. $($npc1_1) is making"
     Write-Host "  their way north to rejoin the rest of the troops but is willing to assist in finding the dragon's nest."
     Write-Host `n
-    Write-Host "  You tell $npc1_1 that the local villagers know where the dragon may be resting at night, together you"
+    Write-Host "  You tell $($npc1_1) that the local villagers know where the dragon may be resting at night, together you"
     Write-Host "  formulate a plan of attack."
     Write-Host `n
     Write-Host "  You ready your weapons and with the villagers help you formulate a plan."
@@ -492,7 +492,7 @@ function commander_second_part2()
     Write-Host "  During the night the dragon enters the cave and the trap is sprung. Huge arrows are fired into the cave and fire"
     Write-Host "  billowed out from it's entrance, the chain mail melts and the dragon makes it's way to the entrance."
     Write-Host `n
-    Write-Host "  You ready your" $characters["$pc"][2] "and" $characters["$pc"][3] "the dragon falls to a heap."
+    Write-Host "  You ready your $($characters[$($pc)][2]) and $($characters[$($pc)][3]) the dragon falls to a heap."
     Write-Host `n
     Write-Host "  You enter the cave and recover an egg for King Grigor."
     Write-Host `n
