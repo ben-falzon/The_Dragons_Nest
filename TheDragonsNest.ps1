@@ -1,7 +1,17 @@
-﻿## Written and developed by Ben Falzon 2022
+﻿<#
+## Written and developed by Ben Falzon 2022
 ## Story planned using https://www.inklewriter.com/
 ## Based on DragonSlayer by slashadminsource
 ## https://github.com/slashadminsource/DragonSlayer
+
+- Change Log:
+- 1.0.1
+  - Added version to title
+  - Cleaned up script
+- 1.0.0
+  - Initial game
+#>
+
 
 # Used so then random numbers are regenerated each time the script is ran
 Do {
@@ -122,7 +132,7 @@ function character_selection()
     Write-Host "########################################################################################################################" -ForegroundColor Red
     Write-Host "#                                                                                                                      #" -ForegroundColor Red
     Write-Host "#                                                                                                                      #" -ForegroundColor Red
-    Write-Host "#                                         The Dragon's Nest by Ben Falzon                                              #" -ForegroundColor Red
+    Write-Host "#                                     The Dragon's Nest v$($version) by Ben Falzon                                           #" -ForegroundColor Red
     Write-Host "#                                                                                                                      #" -ForegroundColor Red
     Write-Host "#                                    Based on Dragon Slayer 1.0 by Ian Waters                                          #" -ForegroundColor Red
     Write-Host "#                                        www.slashadmin.co.uk \ Life In IT                                             #" -ForegroundColor Red
@@ -514,6 +524,9 @@ function commander_second_part2()
 # Ben Falzon Variables #
 #                      #
 ########################
+
+# Game version
+$version = "1.0.1"
 
 # Import all csv files from \source_files
 $npc  = Import-Csv -Path $PSScriptRoot\source_files\npc.csv
